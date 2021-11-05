@@ -1,0 +1,66 @@
+
+<div class="container" style="text-align: center;">
+  <img src="../assets/img/logo-gobierno.png" alt="">
+  <br><br><h1>Datos de Registro PQRS Mindeportes</h1><br>
+</div>
+<div class="container">
+  <div >
+    <input class="form-control" matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input> <br>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- Position Column -->
+    <div >
+      <ng-container matColumnDef="radicado">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Radicado </th>
+        <td mat-cell *matCellDef="let element"> {{element.radicado}}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="fecha_radicado">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+        <td mat-cell *matCellDef="let element"> {{element.fecha_radicado}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="tipo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+        <td mat-cell *matCellDef="let element"> {{element.tipo}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="asunto">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Asunto </th>
+        <td mat-cell *matCellDef="let element"> {{element.asunto}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="empresa">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Empresa </th>
+        <td mat-cell *matCellDef="let element"> {{element.empresa}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="destinatario">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Destinatario </th>
+        <td mat-cell *matCellDef="let element"> {{element.destinatario}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dependencia_destino">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Dependencia </th>
+        <td mat-cell *matCellDef="let element"> {{element.dependencia_destino}} </td>
+      </ng-container>
+    </div>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+
+
+
+
